@@ -1,10 +1,11 @@
-﻿<div class="col-md-6 col-md-offset-3">
-    <h1>Hi {{currentUser.firstName}}</h1>
-    <p>You have logged into Deposit Guard</p>
+﻿<div class="col-md-6 col-md-offset-1">
+    <h3>Hi {{currentUser.firstName}} {{currentUser.lastName}}</h3>
+    <p><font size="3">You have logged into Deposit Guard as a {{currentUser.userType}}</font></p>
     <h3>All registered users:</h3>
     <ul>
+        <!-- added user email address and userType -->
         <li *ngFor="let user of users">
-            {{user.username}} ({{user.firstName}} {{user.lastName}} {{user.emailAddress}})
+            {{user.username}} ({{user.firstName}} {{user.lastName}} {{user.email}} {{user.userType}})
             - <a (click)="deleteUser(user._id)">Delete</a>
         </li>
     </ul>

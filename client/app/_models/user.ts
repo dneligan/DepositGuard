@@ -1,8 +1,10 @@
-﻿export class User {
+﻿//added necessary extra variables
+export class User {
     _id: string;
     username: string;
     password: string;
     firstName: string;
     lastName: string;
-    emailAddress: string;
+    email: string;
+    userType: string;
 }

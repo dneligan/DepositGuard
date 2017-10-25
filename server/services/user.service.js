@@ -26,11 +26,13 @@ function authenticate(username, password) {
 
         if (user && bcrypt.compareSync(password, user.hash)) {
             // authentication successful
+            // added userType and emailAddress to the authentication function
             deferred.resolve({
                 _id: user._id,
                 username: user.username,
                 firstName: user.firstName,
                 lastName: user.lastName,
+                userType: user.userType,
                 emailAddress : user.emailAddress,
                 token: jwt.sign({ sub: user._id }, config.secret)
             });
