@@ -1,34 +1,63 @@
 <!--submit form for the listings -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <div class="address-form">
-    <h3>Add information about your listing here {{currentUser._id}}</h3>
+
+    <h3>Add information about your listing here</h3>
+
     <form name="form" (ngSubmit)="f.form.valid && addListing()" #f="ngForm" novalidate>
-        <div class="form-group">
-            <label for="address">userId</label>
-            <input type="text" class="form-control" name="userId" [(ngModel)]="model.userId" #userId="ngModel" required value="{{currentUser._id}}"/>
-        </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !address.valid }">
             <label for="address">Address</label>
-            <input type="text" class="form-control" name="address" [(ngModel)]="model.address" #address="ngModel" required placeholder="Enter listing address"/>
+            <input type="text" class="form-control" name="address" [(ngModel)]="model.address" #address="ngModel" required placeholder="Enter listing address"
+            />
             <div *ngIf="f.submitted && !address.valid" class="help-block">Listing Address is required</div>
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !description.valid }">
             <label for="description">Description</label>
-            <input type="text" class="form-control" name="description" [(ngModel)]="model.description" #description="ngModel" required placeholder="Enter listing description"/>
+            <input type="text" class="form-control" name="description" [(ngModel)]="model.description" #description="ngModel" required
+                placeholder="Enter listing description" />
             <div *ngIf="f.submitted && !description.valid" class="help-block">Description is required</div>
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !rooms.valid }">
             <label for="rooms">Rooms</label>
-            <input type="text" class="form-control" name="rooms" [(ngModel)]="model.rooms" #rooms="ngModel" required placeholder="Enter the amount of rooms in the listing"/>
+            <input type="text" class="form-control" name="rooms" [(ngModel)]="model.rooms" #rooms="ngModel" required placeholder="Enter the amount of rooms in the listing"
+            />
             <div *ngIf="f.submitted && !rooms.valid" class="help-block">Room amount is required</div>
         </div>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !deposit.valid }">
             <label for="deposit">Deposit Amount</label>
-            <input type="text" class="form-control" name="deposit" [(ngModel)]="model.deposit" #rooms="ngModel" required placeholder="Enter the amount of deposit to be paid"/>
+            <input type="text" class="form-control" name="deposit" [(ngModel)]="model.deposit" #rooms="ngModel" required placeholder="Enter the amount of deposit to be paid"
+            />
             <div *ngIf="f.submitted && !deposit.valid" class="help-block">Deposit amount is required</div>
         </div>
         <div class="form-group">
             <button [disabled]="loading" class="btn btn-primary">Add Listing</button>
-            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+            />
         </div>
+
     </form>
-  </div>
+
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+        {{ firstName + " " + lastName }}
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myCtrl", function ($scope) {
+            $scope.firstName = "John";
+            $scope.lastName = "Doe";
+        });
+    </script>
+
+    <p id="demo">Paragraph</p>
+
+    <script>
+            var x = 5;
+            var y = 2;
+            var z = x + y;
+            document.getElementById("demo").innerHTML = z;
+    </script>
+
+</div>
