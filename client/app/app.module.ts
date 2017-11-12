@@ -9,10 +9,12 @@ import { routing } from './app.routing';
 import { customHttpProvider } from './_helpers/index';
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, ListingService } from './_services/index';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
+import { ListingComponent } from './listings/index';
+import { ManageComponent } from './manage/index';
 
 @NgModule({
     imports: [
@@ -26,14 +28,17 @@ import { RegisterComponent } from './register/index';
         AlertComponent,
         HomeComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        ListingComponent,
+        ManageComponent
     ],
     providers: [
         customHttpProvider,
         AuthGuard,
         AlertService,
         AuthenticationService,
-        UserService
+        UserService,
+        ListingService
     ],
     bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@
 <html>
 <head>
     <base href="/" />
+    
     <title>DepositGuard</title>
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 
@@ -9,6 +10,7 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
     -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- application css -->
     <link href="app.css" rel="stylesheet" />
 
@@ -20,11 +22,40 @@
 
     <script src="systemjs.config.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  
     <script>
         System.import('app').catch(function (err) { console.error(err); });
     </script>
 </head>
 <body>
+    <!--navbar persists on all forms -->
     <app>Loading...</app>
+    <div class="topbar"></div>
+    <div class="nav-side-menu" ng-hide="isActive('login') ng-hide="isActive('register')>
+        <div class="brand">DepositGuard <i class="fa fa-shield fa-lg"></i></div>
+        <i class="fa fa-bars fa-2x toggle-btn"></i>
+      
+            <div class="menu-list">
+                    <li>
+                      <a href="dashboard"><i class="fa fa-dashboard fa-lg"></i> Dashboard </a>
+                    </li>
+                    <li>
+                      <a href="manage-listings"><i class="fa fa-globe fa-lg"></i> Manage Listings </a>
+                    </li>
+                    <li>
+                      <a href="add-listing"><i class="fa fa-plus-square fa-lg"></i> Add Listing </a>
+                    </li>  
+                    <li >
+                      <a href="services"><i class="fa fa-car fa-lg"></i> Services </a>
+                    </li>
+                    <li>
+                      <a href="profile"><i class="fa fa-user fa-lg"></i> Profile </a>
+                    </li>
+                    <li>
+                      <a href="/logout"><i class="fa fa-sign-out fa-lg"></i>Logout</a>
+                    </a>
+                    </li>
+         </div>
+    </div>
 </body>
 </html>

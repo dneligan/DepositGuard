@@ -1,13 +1,51 @@
-﻿<div class="col-md-6 col-md-offset-1">
-    <h3>Hi {{currentUser.firstName}} {{currentUser.lastName}}</h3>
-    <p><font size="3">You have logged into Deposit Guard as a {{currentUser.userType}}</font></p>
+﻿<div class="container">
+
+  <div ng-view>
+  </div>
+
+</div>
+
+<div class="main-div">
+  <h3>Hi {{currentUser.firstName}} {{currentUser.lastName}}. You have logged into Deposit Guard as a {{currentUser.userType}}</h3>
+  <div ng-view>
+  </div>
+</div>
+
+  <!-- not  needed right now
+  <div class="logged-in">
     <h3>All registered users:</h3>
     <ul>
-        <!-- added user email address and userType -->
+        <! -- added user email address and userType --*****>
         <li *ngFor="let user of users">
             {{user.username}} ({{user.firstName}} {{user.lastName}} {{user.email}} {{user.userType}})
             - <a (click)="deleteUser(user._id)">Delete</a>
         </li>
-    </ul>
-    <p><a [routerLink]="['/login']">Logout</a></p>
-</div>
+    </ul
+  </div>
+  -->
+<!-- <div class="nav-side-menu">
+    <div class="brand">DepositGuard <i class="fa fa-shield fa-lg"></i></div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+  
+        <div class="menu-list">
+                <li>
+                  <a href="dashboard"><i class="fa fa-dashboard fa-lg"></i> Dashboard </a>
+                </li>
+                <li>
+                  <a href="manage-listings"><i class="fa fa-globe fa-lg"></i> Manage Listings </a>
+                </li>
+                <li>
+                  <a href="listings"><i class="fa fa-plus-square fa-lg"></i> Add Listing </a>
+                </li>  
+                <li >
+                  <a href="services"><i class="fa fa-car fa-lg"></i> Services </a>
+                </li>
+                <li>
+                  <a href="profile"><i class="fa fa-user fa-lg"></i> Profile </a>
+                </li>
+                <li>
+                  <a href="#logout"><i class="fa fa-sign-out fa-lg"></i><a [routerLink]="['/login']">Logout</a>
+                </a>
+                </li>
+     </div>
+</div> -->

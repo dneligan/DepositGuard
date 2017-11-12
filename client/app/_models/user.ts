@@ -1,10 +1,16 @@
 ﻿//added necessary extra variables
-export class User {
-    _id: string;
-    username: string;
-    password: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    userType: string;
-}
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId
+
+var UserSchema = new Schema( {
+    _id : ObjectId,
+    username: { type: String, required: true },
+    password: { type: String, required: true },
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    email: { type: String, required: true },
+    userType: { type: String, required: true },
+});
+
+var User = mongoose.model('User', UserSchema);
