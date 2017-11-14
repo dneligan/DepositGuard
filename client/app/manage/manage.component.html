@@ -1,6 +1,6 @@
 <div class="address-form">
     {{currentUser._id}}
     <li *ngFor="let listing of listings">
-        {{listing._id}} ({{listing.description}} {{listing.rooms}} {{listing.deposit}})
+        {{listing.userId}} ({{listing.rooms}} {{listing.deposit}})
     </li>
 </div>

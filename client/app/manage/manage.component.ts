@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { User, Listing } from '../_models/index';
 import { UserService, ListingService } from '../_services/index';
 

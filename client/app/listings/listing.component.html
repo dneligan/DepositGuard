@@ -3,8 +3,13 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <div class="address-form">
 
+    <script type="text/javascript" src="localhost:4000/foo.js"></script>
     <h3>Add information about your listing here</h3>
 
+    <div ng-app="myApp" ng-controller="myCtrl">
+            <p>Angular Functionality:</p>
+            {{ firstName + " " + lastName }}
+    </div>
     <form name="form" (ngSubmit)="f.form.valid && addListing()" #f="ngForm" novalidate>
         <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !address.valid }">
             <label for="address">Address</label>
@@ -37,27 +42,4 @@
         </div>
 
     </form>
-
-
-    <div ng-app="myApp" ng-controller="myCtrl">
-        {{ firstName + " " + lastName }}
-    </div>
-
-    <script>
-        var app = angular.module("myApp", []);
-        app.controller("myCtrl", function ($scope) {
-            $scope.firstName = "John";
-            $scope.lastName = "Doe";
-        });
-    </script>
-
-    <p id="demo">Paragraph</p>
-
-    <script>
-            var x = 5;
-            var y = 2;
-            var z = x + y;
-            document.getElementById("demo").innerHTML = z;
-    </script>
-
 </div>
